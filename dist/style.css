@@ -1,0 +1,176 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+}
+
+/*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+    5. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+    6. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+    7. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/*
+    8. Create a root stacking context
+  */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+:root {
+  /*    ### Primary */
+  --clr--red: hsl(0, 100%, 74%);
+  --clr--green: hsl(154, 59%, 51%);
+  --clr--white: hsl(0, 0%, 100%);
+  /*   ### Accent */
+  --clr--blue: hsl(248, 32%, 49%);
+  /* ### Neutral */
+  --clr--dark-blue: hsl(249, 10%, 26%);
+  --clr--grayish-blue: hsl(246, 25%, 77%);
+}
+
+:root {
+  /*  Font family */
+  --ff--primary: "Poppins", sans-serif;
+  /* Font Size */
+  --fs--regular: 16px;
+  /*  Font Weights */
+  --fw--bold-1: 400;
+  --fw--bold-2: 500;
+  --fw--bold-3: 600;
+  --fw--bold-4: 700;
+}
+
+body {
+  font-family: var(--ff--primary);
+  font-size: var(--fs--regular);
+  font-weight: var(--fw--bold-1);
+  background-color: var(--clr--red);
+  background-image: url("/images/bg-intro-mobile.png");
+}
+
+.container {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  place-items: center;
+}
+
+.main {
+  display: grid;
+  max-width: 500px;
+  margin: 1.5rem;
+}
+.main .header__section {
+  text-align: center;
+  color: var(--clr--white);
+}
+.main h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.main p {
+  margin-bottom: 2rem;
+}
+.main .input__section {
+  display: grid;
+}
+.main .input__section .try-btn {
+  min-width: 300px;
+  border: none;
+  padding: 1rem;
+  background-color: var(--clr--blue);
+  color: var(--clr--white);
+  border-radius: 0.7rem;
+  margin-bottom: 1rem;
+}
+.main .input__section .try-btn span {
+  font-weight: var(--fw--bold-4);
+}
+.main .input__section_form {
+  min-width: 300px;
+  display: grid;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 0.8rem;
+  background-color: var(--clr--white);
+}
+.main .input__section_form input {
+  width: 100%;
+  outline: 0;
+  padding: 1rem;
+  border: none;
+  border: solid 1px #ccc;
+  border-radius: 0.5rem;
+}
+.main .input__section_form .claim-btn {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background-color: var(--clr--green);
+  text-transform: uppercase;
+  font-weight: var(--fw--bold-3);
+  color: var(--clr--white);
+}
+.main .input__section_form .terms {
+  color: var(--clr--grayish-blue);
+  text-align: center;
+  margin: 0 1rem;
+  font-size: 12px;
+  font-weight: var(--fw--bold-2);
+}
+.main .input__section_form .terms span {
+  color: var(--clr--red);
+  font-weight: var(--fw--bold-4);
+}/*# sourceMappingURL=style.css.map */
