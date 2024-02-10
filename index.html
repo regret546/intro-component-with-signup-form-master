@@ -43,35 +43,44 @@
           </p>
         </section>
         <section class="input__section">
-          <button class="try-btn">
+          <div class="try-info">
             <span>Try it free 7 days</span> then $20/mo. thereafter
-          </button>
+          </div>
 
           <form action="#" class="input__section_form">
-            <input
-              type="text"
-              name="firstName"
-              id="firstName"
-              placeholder="First Name"
-            />
-            <input
-              type="text"
-              name="lastName"
-              id="lastName"
-              placeholder="Last Name"
-            />
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Email Address"
-            />
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
-            />
+            <div class="input-group">
+              <input
+                type="text"
+                name="firstName"
+                id="firstName"
+                placeholder=" "
+              />
+              <label for="firstName">First Name</label>
+              <img class="errorImg" src="images/icon-error.svg" alt="error" />
+              <p class="errorText">asdasdasd</p>
+            </div>
+            <div class="input-group">
+              <input
+                type="text"
+                name="lastName"
+                id="lastName"
+                placeholder=" "
+              />
+              <label for="lastName">Last Name</label>
+            </div>
+            <div class="input-group">
+              <input type="email" name="email" id="email" placeholder=" " />
+              <label for="email">Email Address</label>
+            </div>
+            <div class="input-group">
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder=" "
+              />
+              <label for="password">Password</label>
+            </div>
             <button class="claim-btn">Claim your free trial</button>
             <p class="terms">
               By clicking the button, you are agreeing to our

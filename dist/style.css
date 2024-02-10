@@ -98,6 +98,11 @@ body {
   background-color: var(--clr--red);
   background-image: url("/images/bg-intro-mobile.png");
 }
+@media only screen and (min-width: 60em) {
+  body {
+    background-image: url("/images/bg-intro-desktop.png");
+  }
+}
 
 .container {
   min-height: 100vh;
@@ -115,6 +120,12 @@ body {
   text-align: center;
   color: var(--clr--white);
 }
+.main button {
+  cursor: pointer;
+}
+.main button:hover {
+  opacity: 0.7;
+}
 .main h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
@@ -124,8 +135,9 @@ body {
 }
 .main .input__section {
   display: grid;
+  position: relative;
 }
-.main .input__section .try-btn {
+.main .input__section .try-info {
   min-width: 300px;
   border: none;
   padding: 1rem;
@@ -133,26 +145,63 @@ body {
   color: var(--clr--white);
   border-radius: 0.7rem;
   margin-bottom: 1rem;
+  text-align: center;
 }
-.main .input__section .try-btn span {
+.main .input__section .try-info span {
   font-weight: var(--fw--bold-4);
 }
 .main .input__section_form {
   min-width: 300px;
   display: grid;
-  gap: 1rem;
-  padding: 1rem 1.5rem;
+  gap: 1.5rem;
+  padding: 1.2rem 1.7rem;
   border: none;
   border-radius: 0.8rem;
   background-color: var(--clr--white);
 }
-.main .input__section_form input {
+.main .input__section_form .input-group {
+  position: relative;
+}
+.main .input__section_form .input-group label {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  transition: 0.5s;
+}
+.main .input__section_form .input-group input {
   width: 100%;
-  outline: 0;
+  outline: none;
   padding: 1rem;
   border: none;
   border: solid 1px #ccc;
   border-radius: 0.5rem;
+}
+.main .input__section_form .input-group input:focus {
+  border: 1px solid var(--clr--dark-blue);
+}
+.main .input__section_form .input-group input:not(:-moz-placeholder-shown):not(:focus) ~ label {
+  top: 0;
+  font-size: 14px;
+  background: var(--clr--white);
+}
+.main .input__section_form .input-group input:focus ~ label, .main .input__section_form .input-group input:not(:placeholder-shown):not(:focus) ~ label {
+  top: 0;
+  font-size: 14px;
+  background: var(--clr--white);
+}
+.main .input__section_form .input-group .errorImg {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+}
+.main .input__section_form .input-group .errorText {
+  margin-bottom: 0;
+  position: absolute;
+  right: 7px;
+  font-size: 14px;
+  color: var(--clr--red);
 }
 .main .input__section_form .claim-btn {
   border: none;
@@ -171,6 +220,29 @@ body {
   font-weight: var(--fw--bold-2);
 }
 .main .input__section_form .terms span {
+  cursor: pointer;
   color: var(--clr--red);
   font-weight: var(--fw--bold-4);
+}
+.main .input__section_form .terms span:hover {
+  opacity: 0.7;
+}
+@media only screen and (min-width: 60em) {
+  .main {
+    max-width: 960px;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.main .header__section {
+  margin: auto 1rem;
+}
+.main .header__section h1,
+.main .header__section p {
+  text-align: left;
+}
+.main .header__section h1 {
+  font-size: 2.5rem;
+}
+.main .header__section p {
+  font-size: 16px;
 }/*# sourceMappingURL=style.css.map */

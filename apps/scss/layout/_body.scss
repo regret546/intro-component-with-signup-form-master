@@ -1,7 +1,13 @@
+@use "../layout/util/" as u;
+
 body {
   font-family: var(--ff--primary);
   font-size: var(--fs--regular);
   font-weight: var(--fw--bold-1);
   background-color: var(--clr--red);
   background-image: url("/images/bg-intro-mobile.png");
+
+  @include u.breakpoints(large) {
+    background-image: url("/images/bg-intro-desktop.png");
+  }
 }

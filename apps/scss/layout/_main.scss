@@ -1,3 +1,5 @@
+@use "../layout/util/" as u;
+
 .main {
   display: grid;
   max-width: 500px;
@@ -6,6 +8,14 @@
   .header__section {
     text-align: center;
     color: var(--clr--white);
+  }
+
+  button {
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.7;
+    }
   }
 
   h1 {
@@ -19,8 +29,9 @@
 
   .input__section {
     display: grid;
+    position: relative;
 
-    .try-btn {
+    .try-info {
       min-width: 300px;
       border: none;
       padding: 1rem;
@@ -28,27 +39,68 @@
       color: var(--clr--white);
       border-radius: 0.7rem;
       margin-bottom: 1rem;
+      text-align: center;
       span {
         font-weight: var(--fw--bold-4);
+      }
+
+      &:hover {
       }
     }
 
     &_form {
       min-width: 300px;
       display: grid;
-      gap: 1rem;
-      padding: 1rem 1.5rem;
+      gap: 1.5rem;
+      padding: 1.2rem 1.7rem;
       border: none;
       border-radius: 0.8rem;
       background-color: var(--clr--white);
 
-      input {
-        width: 100%;
-        outline: 0;
-        padding: 1rem;
-        border: none;
-        border: solid 1px #ccc;
-        border-radius: 0.5rem;
+      .input-group {
+        position: relative;
+
+        label {
+          position: absolute;
+          top: 50%;
+          left: 1rem;
+          transform: translateY(-50%);
+          transition: 0.5s;
+        }
+        input {
+          width: 100%;
+          outline: none;
+          padding: 1rem;
+          border: none;
+          border: solid 1px #ccc;
+          border-radius: 0.5rem;
+
+          &:focus {
+            border: 1px solid var(--clr--dark-blue);
+          }
+
+          &:focus ~ label,
+          &:not(:placeholder-shown):not(:focus) ~ label {
+            top: 0;
+            font-size: 14px;
+            background: var(--clr--white);
+          }
+        }
+
+        .errorImg {
+          position: absolute;
+          top: 50%;
+          right: 1rem;
+          transform: translateY(-50%);
+        }
+
+        .errorText {
+          margin-bottom: 0;
+          position: absolute;
+          right: 7px;
+          font-size: 14px;
+          color: var(--clr--red);
+        }
       }
 
       .claim-btn {
@@ -69,10 +121,37 @@
         font-weight: var(--fw--bold-2);
 
         span {
+          cursor: pointer;
           color: var(--clr--red);
           font-weight: var(--fw--bold-4);
+
+          &:hover {
+            opacity: 0.7;
+          }
         }
       }
+    }
+  }
+
+  @include u.breakpoints(large) {
+    max-width: 960px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .header__section {
+    margin: auto 1rem;
+
+    h1,
+    p {
+      text-align: left;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 16px;
     }
   }
 }
