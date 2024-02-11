@@ -3,22 +3,21 @@ const claimBtn = document.querySelector("#claim-btn");
 const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 const emailInput = document.querySelector("#email");
 
-function errorInput(inputGroup, message) {
+function showError(inputGroup, message) {
   const input = inputGroup.querySelector("input");
-  const label = inputGroup.querySelector("label");
-  const labelContent = label.textContent;
-  /*  Create image element for error */
+  const labelContent = inputGroup.querySelector("label").textContent;
+
   const errorImg = document.createElement("img");
   errorImg.classList.add("errorImg");
   errorImg.src = "images/icon-error.svg";
-  /* Create paragraph element for error */
+
   const errorP = document.createElement("p");
   errorP.classList.add("errorText");
   errorP.textContent = labelContent + " " + message;
 
   inputGroup.appendChild(errorImg);
   inputGroup.appendChild(errorP);
-  // Change border color to red
+
   input.style.borderColor = "var(--clr--red)";
 }
 
@@ -34,40 +33,44 @@ function clearError(inputGroup) {
     errorP.remove();
   }
 
-  input.style.borderColor = "#ccc"; // Reset to default
+  input.style.borderColor = "#ccc";
+}
+
+function validateInputs() {
+  let isValid = true;
+
+  inputGroups.forEach((inputGroup) => {
+    const input = inputGroup.querySelector("input");
+    const inputValue = input.value.trim();
+
+    clearError(inputGroup);
+
+    if (inputValue === "") {
+      showError(inputGroup, "must not be empty");
+      isValid = false;
+    } else if (input.id === "email" && !emailRegex.test(inputValue)) {
+      showError(inputGroup, "is not valid");
+      isValid = false;
+    }
+  });
+
+  return isValid;
+}
+
+function resetInputs() {
+  inputGroups.forEach((inputGroup) => {
+    const input = inputGroup.querySelector("input");
+    input.value = "";
+    clearError(inputGroup);
+  });
 }
 
 claimBtn.addEventListener("click", function (e) {
   e.preventDefault();
-  let isValid = true;
 
-  const inputValue = inputGroups.forEach((inputGroup) => {
-    const input = inputGroup.querySelector("input");
-    const inputValue = input.value.trim();
-    if (inputValue === "") {
-      errorInput(inputGroup, "must not be empty");
-      isValid = false;
-    } else {
-      clearError(inputGroup);
-    }
-
-    if (
-      input.id === "email" &&
-      inputValue !== "" &&
-      !emailRegex.test(inputValue)
-    ) {
-      errorInput(inputGroup, "is not valid");
-      input.style.borderColor = "var(--clr--red)";
-      isValid = false;
-    }
-  });
-  if (isValid) {
+  if (validateInputs()) {
     alert("Submitted");
-
-    inputGroups.forEach((inputGroup) => {
-      const input = inputGroup.querySelector("input");
-      input.value = "";
-    });
+    resetInputs();
   }
 });
 
@@ -89,8 +92,9 @@ emailInput.addEventListener("input", function () {
     clearError(inputGroup);
     return;
   }
-  if (!emailInputValue.test(emailRegex)) {
-    errorInput(inputGroup, "is not valid");
+
+  if (!emailRegex.test(emailInputValue)) {
+    showError(inputGroup, "is not valid");
   } else {
     clearError(inputGroup);
   }
