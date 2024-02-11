@@ -7,6 +7,17 @@ body {
   background-color: var(--clr--red);
   background-image: url("/images/bg-intro-mobile.png");
 
+  footer {
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+      font-weight: var(--fw--bold-3);
+    }
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  }
+
   @include u.breakpoints(large) {
     background-image: url("/images/bg-intro-desktop.png");
   }
