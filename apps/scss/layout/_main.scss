@@ -6,7 +6,6 @@
   margin: 1.5rem;
 
   .header__section {
-    text-align: center;
     color: var(--clr--white);
   }
 
@@ -16,6 +15,11 @@
     &:hover {
       opacity: 0.7;
     }
+  }
+
+  h1,
+  p {
+    text-align: center;
   }
 
   h1 {
@@ -40,6 +44,7 @@
       border-radius: 0.7rem;
       margin-bottom: 1rem;
       text-align: center;
+      box-shadow: 0px 7px 0px rgba(0, 0, 0, 0.3);
       span {
         font-weight: var(--fw--bold-4);
       }
@@ -51,7 +56,7 @@
     &_form {
       min-width: 300px;
       display: grid;
-      gap: 1.5rem;
+      gap: 1.7rem;
       padding: 1.2rem 1.7rem;
       border: none;
       border-radius: 0.8rem;
@@ -82,7 +87,7 @@
           &:focus ~ label,
           &:not(:placeholder-shown):not(:focus) ~ label {
             top: 0;
-            font-size: 14px;
+            font-size: 13px;
             background: var(--clr--white);
           }
         }
@@ -136,22 +141,22 @@
   @include u.breakpoints(large) {
     max-width: 960px;
     grid-template-columns: 1fr 1fr;
-  }
 
-  .header__section {
-    margin: auto 1rem;
+    .header__section {
+      margin: auto 1rem;
 
-    h1,
-    p {
-      text-align: left;
-    }
+      h1,
+      p {
+        text-align: left;
+      }
 
-    h1 {
-      font-size: 2.5rem;
-    }
+      h1 {
+        font-size: 2.5rem;
+      }
 
-    p {
-      font-size: 16px;
+      p {
+        font-size: 16px;
+      }
     }
   }
 }

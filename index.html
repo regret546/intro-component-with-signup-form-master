@@ -48,7 +48,7 @@
           </div>
 
           <form action="#" class="input__section_form">
-            <div class="input-group">
+            <div class="input-group" id="input-group">
               <input
                 type="text"
                 name="firstName"
@@ -56,10 +56,10 @@
                 placeholder=" "
               />
               <label for="firstName">First Name</label>
-              <img class="errorImg" src="images/icon-error.svg" alt="error" />
-              <p class="errorText">asdasdasd</p>
+              <!--  <img class="errorImg" src="images/icon-error.svg" alt="error" />
+              <p class="errorText">asdasdasd</p> -->
             </div>
-            <div class="input-group">
+            <div class="input-group" id="input-group">
               <input
                 type="text"
                 name="lastName"
@@ -68,11 +68,11 @@
               />
               <label for="lastName">Last Name</label>
             </div>
-            <div class="input-group">
+            <div class="input-group" id="input-group">
               <input type="email" name="email" id="email" placeholder=" " />
               <label for="email">Email Address</label>
             </div>
-            <div class="input-group">
+            <div class="input-group" id="input-group">
               <input
                 type="password"
                 name="password"
@@ -81,7 +81,9 @@
               />
               <label for="password">Password</label>
             </div>
-            <button class="claim-btn">Claim your free trial</button>
+            <button class="claim-btn" id="claim-btn">
+              Claim your free trial
+            </button>
             <p class="terms">
               By clicking the button, you are agreeing to our
               <span>Terms and Services</span>
@@ -98,5 +100,6 @@
         >. Coded by <a href="#">Your Name Here</a>.
       </p>
     </footer>
+    <script src="/apps/js/app.js"></script>
   </body>
 </html>
